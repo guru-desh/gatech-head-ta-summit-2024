@@ -1,49 +1,56 @@
-site_name: Practitioners' Workshop 2024
-site_url: https://guru-desh.github.io/practitioners-workshop-2024/
-site_description: The website for the L@S Practitioners' Workshop 2024
+# Site Settings
+site_name: GT Head TA Summit 2024
+site_author: Gururaj Deshpande
+docs_dir: docs # Obsidian Vault
+
+# Material Configuration
 theme:
-  font:
-    text: Roboto
-    code: Roboto Mono
   name: material
+  custom_dir: assets # Contains custom 'home.html' coverpage (and 'main.html')
+
   features:
-    - navigation.tabs
-    - navigation.sections
-    - toc.integrate
-    - navigation.top
-    - search.suggest
-    - search.highlight
-    - content.tabs.link
-    - content.code.annotation
-    - content.code.copy
-  language: en
+    - navigation.indexes # Implied section 'index.md' files
+    - navigation.tabs # Static upper section tabs (exist)
+    - navigation.tabs.sticky # Static upper section tabs (stay)
+    - navigation.footer # Add 'previous' and 'next' buttons in the footer
+    - navigation.instant # Keep navigation from reloading
+    - navigation.instant.progress # Display page loading progress-bar ( > 400ms)
+    - search.highlight # Highlight all occurrences of queried string
+    - search.share # Search Query can be copied to Clipboard
+    - search.suggest # Display likeliest completion for the last queried word
+
   palette:
-    - scheme: default
-      toggle:
-        icon: material/toggle-switch-off-outline
-        name: Switch to dark mode
-      primary: blue
-      accent: deep purple
-    - scheme: slate
-      toggle:
-        icon: material/toggle-switch
-        name: Switch to light mode
-      primary: blue
-      accent: lime
+    # Light Mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: deep orange
+      accent: blue
+
+# Custom Homepage Elements
+home_cover_image: attachments/banner.jpg # This path starts at your root mkdocs directory.
+home_tagline: Georgia Tech Head TA Summit 2024
+home_description: |
+  A place for Head TAs to come together and share their experiences, resources, and knowledge.
+
+# Gradient Color
+home_gradient_hsla: hsla(400deg,47%,55%,1) # Default Green: hsla(160deg,47%,55%,1)
+
+# Custom Homepage Button(s)
+home_button1_name: RSVP # Comment this parameter out to remove the button.
+home_button1_url: RSVP/ # This path starts at your root mkdocs directory.
+home_button1_theme: md-button md-button--primary # Options: "md-button", "md-button md-button--primary"
+home_button1_icon: people # Options: "people", "gear", "image"
+home_button1_blurb: | # Short description of this button / section.
+  Come join us at the summit! RSVP now!
+
+home_button2_name: About Us # Comment this parameter out to remove the button.
+home_button2_url: About/ # This path starts at your root mkdocs directory.
+home_button2_theme: md-button # Options: "md-button", "md-button md-button--primary"
+home_button2_icon: gear # Options: "people", "gear", "image"
+home_button2_blurb: | # Short description of this button / section.
+  Learn about the organizers and the purpose of the summit.
 
 plugins:
+  - search
+  - roamlinks # Obsidian Style Image Support ![[<attachment_name>]]
   - social
-
-markdown_extensions:
-  - pymdownx.highlight:
-      anchor_linenums: true
-  - pymdownx.inlinehilite
-  - pymdownx.snippets
-  - admonition
-  - pymdownx.arithmatex:
-      generic: true
-  - footnotes
-  - pymdownx.details
-  - pymdownx.superfences
-  - pymdownx.mark
-  - attr_list
